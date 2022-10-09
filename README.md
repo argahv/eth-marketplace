@@ -1,6 +1,6 @@
-# Blockchain based online course marketplace for students
+# Blockchain based online course marketplace
 
-## NextJS, SOlidity, Truffle, Ganache, Web3, React, Redux, TailwindCSS, Ethereum
+## NextJS, Solidity, Truffle, Ganache, Web3, React, Redux, TailwindCSS, Ethereum, MetaMask
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
