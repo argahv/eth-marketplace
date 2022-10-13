@@ -1,7 +1,10 @@
-import { handler as createUseAccount } from "./useAccount";
 
-export const setupHooks = (...args) => {
+import { handler as createAccountHook } from "./useAccount";
+import { handler as createNetworkHook } from "./useNetwork";
+
+export const setupHooks = (...deps) => {
   return {
-    useAccount: createUseAccount(...args),
-  };
-};
+    useAccount: createAccountHook(...deps),
+    useNetwork: createNetworkHook(...deps)
+  }
+}
