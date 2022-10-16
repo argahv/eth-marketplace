@@ -1,17 +1,14 @@
-
-
 import { Button } from "@components/ui/common";
 import { CourseFilter, OwnedCourseCard } from "@components/ui/course";
 import { BaseLayout } from "@components/ui/layout";
 import { MarketHeader } from "@components/ui/marketplace";
 
 export default function ManageCourses() {
-
   return (
     <>
       <MarketHeader />
       <CourseFilter />
-      <section className="grid grid-cols-1">
+      <section className='grid grid-cols-1'>
         {/* <OwnedCourseCard>
           <div className="flex mr-2 relative rounded-md">
             <input
@@ -27,7 +24,7 @@ export default function ManageCourses() {
         </OwnedCourseCard> */}
       </section>
     </>
-  )
+  );
 }
 
-ManageCourses.Layout = BaseLayout
+ManageCourses.Layout = BaseLayout;
