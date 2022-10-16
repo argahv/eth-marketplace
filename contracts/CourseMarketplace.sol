@@ -17,6 +17,25 @@ contract CourseMarketplace {
     // number of all courses+id of the course
     uint256 private totalOwnedCourses;
 
+    address payable private owner;
+
+    constructor() {
+        setContractOwner(msg.sender);
+    }
+
+    /// Course already has an owner
+    error CourseHasOwner();
+
+    /// Only owner can call this function
+    error OnlyOwner();
+
+    modifier onlyOwner() {
+        if (msg.sender != getContractOwner()) {
+            revert OnlyOwner();
+        }
+        _;
+    }
+
     struct Course {
         uint256 id; //32
         uint256 price; //32
@@ -25,11 +44,16 @@ contract CourseMarketplace {
         State state; //1
     }
 
-    function purchaseCourse(bytes16 _courseId, bytes21 _proof)
+    function purchaseCourse(bytes16 _courseId, bytes32 _proof)
         external
         payable
     {
         bytes32 courseHash = keccak256(abi.encodePacked(_courseId, msg.sender));
+
+        if (hasCourseOwnerShip(courseHash)) {
+            revert CourseHasOwner();
+        }
+
         uint256 id = totalOwnedCourses++;
         ownedCourseHash[id] = courseHash;
 
@@ -40,6 +64,11 @@ contract CourseMarketplace {
             owner: msg.sender,
             state: State.Purchased
         });
+    }
+
+    function transferOwnership(address newOwner) external {
+        require(msg.sender == owner, "Only owner can transfer ownership");
+        setContractOwner(newOwner);
     }
 
     function getCourseCount() external view returns (uint256) {
@@ -60,5 +89,21 @@ contract CourseMarketplace {
         returns (Course memory)
     {
         return ownedCourses[courseHash];
+    }
+
+    function getContractOwner() public view returns (address) {
+        return owner;
+    }
+
+    function setContractOwner(address newOwner) private {
+        owner = payable(newOwner);
+    }
+
+    function hasCourseOwnerShip(bytes32 courseHash)
+        private
+        view
+        returns (bool)
+    {
+        return ownedCourses[courseHash].owner == msg.sender;
     }
 }
