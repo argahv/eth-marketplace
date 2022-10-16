@@ -2,108 +2,122 @@
 pragma solidity >=0.4.22 <0.9.0;
 
 contract CourseMarketplace {
-    enum State {
-        Purchased,
-        Activated,
-        Deactivated
+
+  enum State {
+    Purchased,
+    Activated,
+    Deactivated
+  }
+
+  struct Course {
+    uint id; // 32
+    uint price; // 32
+    bytes32 proof; // 32
+    address owner; // 20
+    State state; // 1
+  }
+
+  // mapping of courseHash to Course data
+  mapping(bytes32 => Course) private ownedCourses;
+
+  // mapping of courseID to courseHash
+  mapping(uint => bytes32) private ownedCourseHash;
+
+  // number of all courses + id of the course
+  uint private totalOwnedCourses;
+
+  address payable private owner;
+
+  constructor() {
+    setContractOwner(msg.sender);
+  }
+
+  /// Course has already a Owner!
+  error CourseHasOwner();
+
+  /// Only owner has an access!
+  error OnlyOwner();
+
+  modifier onlyOwner() {
+    if (msg.sender != getContractOwner()) {
+      revert OnlyOwner();
+    }
+    _;
+  }
+
+  function purchaseCourse(
+    bytes16 courseId, // 0x00000000000000000000000000003130
+    bytes32 proof // 0x0000000000000000000000000000313000000000000000000000000000003130
+  )
+    external
+    payable
+  {
+    bytes32 courseHash = keccak256(abi.encodePacked(courseId, msg.sender));
+
+    if (hasCourseOwnership(courseHash)) {
+      revert CourseHasOwner();
     }
 
-    // mapping of courseHash ot course data
-    mapping(bytes32 => Course) private ownedCourses;
+    uint id = totalOwnedCourses++;
 
-    // mapping courseId to courseHash
-    mapping(uint256 => bytes32) private ownedCourseHash;
+    ownedCourseHash[id] = courseHash;
+    ownedCourses[courseHash] = Course({
+      id: id,
+      price: msg.value,
+      proof: proof,
+      owner: msg.sender,
+      state: State.Purchased
+    });
+  }
 
-    // number of all courses+id of the course
-    uint256 private totalOwnedCourses;
+  function transferOwnership(address newOwner)
+    external
+    onlyOwner
+  {
+    setContractOwner(newOwner);
+  }
 
-    address payable private owner;
+  function getCourseCount()
+    external
+    view
+    returns (uint)
+  {
+    return totalOwnedCourses;
+  }
 
-    constructor() {
-        setContractOwner(msg.sender);
-    }
+  function getCourseHashAtIndex(uint index)
+    external
+    view
+    returns (bytes32)
+  {
+    return ownedCourseHash[index];
+  }
 
-    /// Course already has an owner
-    error CourseHasOwner();
+  function getCourseByHash(bytes32 courseHash)
+    external
+    view
+    returns (Course memory)
+  {
+    return ownedCourses[courseHash];
+  }
 
-    /// Only owner can call this function
-    error OnlyOwner();
+  function getContractOwner()
+    public
+    view
+    returns (address)
+  {
+    return owner;
+  }
 
-    modifier onlyOwner() {
-        if (msg.sender != getContractOwner()) {
-            revert OnlyOwner();
-        }
-        _;
-    }
+  function setContractOwner(address newOwner) private {
+    owner = payable(newOwner);
+  }
 
-    struct Course {
-        uint256 id; //32
-        uint256 price; //32
-        bytes32 proof; //32
-        address owner; //20
-        State state; //1
-    }
-
-    function purchaseCourse(bytes16 _courseId, bytes32 _proof)
-        external
-        payable
-    {
-        bytes32 courseHash = keccak256(abi.encodePacked(_courseId, msg.sender));
-
-        if (hasCourseOwnerShip(courseHash)) {
-            revert CourseHasOwner();
-        }
-
-        uint256 id = totalOwnedCourses++;
-        ownedCourseHash[id] = courseHash;
-
-        ownedCourses[courseHash] = Course({
-            id: id,
-            price: msg.value,
-            proof: _proof,
-            owner: msg.sender,
-            state: State.Purchased
-        });
-    }
-
-    function transferOwnership(address newOwner) external {
-        require(msg.sender == owner, "Only owner can transfer ownership");
-        setContractOwner(newOwner);
-    }
-
-    function getCourseCount() external view returns (uint256) {
-        return totalOwnedCourses;
-    }
-
-    function getCourseHashAtIndex(uint256 _index)
-        external
-        view
-        returns (bytes32)
-    {
-        return ownedCourseHash[_index];
-    }
-
-    function getCourseByHash(bytes32 courseHash)
-        external
-        view
-        returns (Course memory)
-    {
-        return ownedCourses[courseHash];
-    }
-
-    function getContractOwner() public view returns (address) {
-        return owner;
-    }
-
-    function setContractOwner(address newOwner) private {
-        owner = payable(newOwner);
-    }
-
-    function hasCourseOwnerShip(bytes32 courseHash)
-        private
-        view
-        returns (bool)
-    {
-        return ownedCourses[courseHash].owner == msg.sender;
-    }
+  function hasCourseOwnership(bytes32 courseHash)
+    private
+    view
+    returns (bool)
+  {
+    return ownedCourses[courseHash].owner == msg.sender;
+  }
 }
