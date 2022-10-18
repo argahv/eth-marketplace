@@ -42,13 +42,11 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "stateMutability": "payable",
-      "type": "receive",
-      "payable": true
+      "type": "receive"
     },
     {
       "inputs": [
@@ -107,8 +105,7 @@
       "name": "purchaseCourse",
       "outputs": [],
       "stateMutability": "payable",
-      "type": "function",
-      "payable": true
+      "type": "function"
     },
     {
       "inputs": [
@@ -121,8 +118,7 @@
       "name": "repurchaseCourse",
       "outputs": [],
       "stateMutability": "payable",
-      "type": "function",
-      "payable": true
+      "type": "function"
     },
     {
       "inputs": [
@@ -174,8 +170,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [
@@ -194,8 +189,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [
@@ -241,8 +235,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [],
@@ -255,8 +248,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     }
   ],
   "metadata": "{\"compiler\":{\"version\":\"0.8.4+commit.c7e474f2\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[],\"name\":\"CourseHasOwner\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"CourseIsNotCreated\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidState\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"OnlyOwner\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"SenderIsNotCourseOwner\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"courseHash\",\"type\":\"bytes32\"}],\"name\":\"activateCourse\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"courseHash\",\"type\":\"bytes32\"}],\"name\":\"deactivateCourse\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"emergencyWithdraw\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getContractOwner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"courseHash\",\"type\":\"bytes32\"}],\"name\":\"getCourseByHash\",\"outputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"proof\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"enum CourseMarketplace.State\",\"name\":\"state\",\"type\":\"uint8\"}],\"internalType\":\"struct CourseMarketplace.Course\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getCourseCount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"index\",\"type\":\"uint256\"}],\"name\":\"getCourseHashAtIndex\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"isStopped\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes16\",\"name\":\"courseId\",\"type\":\"bytes16\"},{\"internalType\":\"bytes32\",\"name\":\"proof\",\"type\":\"bytes32\"}],\"name\":\"purchaseCourse\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"courseHash\",\"type\":\"bytes32\"}],\"name\":\"repurchaseCourse\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"resumeContract\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"selfDestruct\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"stopContract\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"withdraw\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"stateMutability\":\"payable\",\"type\":\"receive\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"errors\":{\"CourseHasOwner()\":[{\"notice\":\"Course has already a Owner!\"}],\"CourseIsNotCreated()\":[{\"notice\":\"Course is not created!\"}],\"InvalidState()\":[{\"notice\":\"Course has invalid state!\"}],\"OnlyOwner()\":[{\"notice\":\"Only owner has an access!\"}],\"SenderIsNotCourseOwner()\":[{\"notice\":\"Sender is not course owner!\"}]},\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/CourseMarketplace.sol\":\"CourseMarketplace\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/CourseMarketplace.sol\":{\"keccak256\":\"0x47d84e8600ab40a7fa539b1218a800cdb5bccd787d0981d2ae9c4f55f453847a\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://29f9c243eb9727aa810b295b021d8541042304d221f1bfa9a6e448d8c5846114\",\"dweb:/ipfs/QmPUpXZQVBcK2adHkbGNCQe4bPJcinu58hCdXq7LqD2CE7\"]}},\"version\":1}",
@@ -5774,9 +5766,7 @@
   "ast": {
     "absolutePath": "project:/contracts/CourseMarketplace.sol",
     "exportedSymbols": {
-      "CourseMarketplace": [
-        490
-      ]
+      "CourseMarketplace": [490]
     },
     "id": 491,
     "license": "MIT",
@@ -5784,15 +5774,7 @@
     "nodes": [
       {
         "id": 1,
-        "literals": [
-          "solidity",
-          ">=",
-          "0.4",
-          ".22",
-          "<",
-          "0.9",
-          ".0"
-        ],
+        "literals": ["solidity", ">=", "0.4", ".22", "<", "0.9", ".0"],
         "nodeType": "PragmaDirective",
         "src": "32:32:0"
       },
@@ -5803,9 +5785,7 @@
         "contractKind": "contract",
         "fullyImplemented": true,
         "id": 490,
-        "linearizedBaseContracts": [
-          490
-        ],
+        "linearizedBaseContracts": [490],
         "name": "CourseMarketplace",
         "nameLocation": "75:17:0",
         "nodeType": "ContractDefinition",
@@ -6584,10 +6564,7 @@
                       "id": 73,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        4294967278,
-                        4294967278
-                      ],
+                      "overloadedDeclarations": [4294967278, 4294967278],
                       "referencedDeclaration": 4294967278,
                       "src": "1140:7:0",
                       "typeDescriptions": {
@@ -6667,10 +6644,7 @@
                       "id": 82,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        4294967278,
-                        4294967278
-                      ],
+                      "overloadedDeclarations": [4294967278, 4294967278],
                       "referencedDeclaration": 4294967278,
                       "src": "1206:7:0",
                       "typeDescriptions": {
@@ -6757,10 +6731,7 @@
               "src": "1333:101:0",
               "statements": [
                 {
-                  "assignments": [
-                    100,
-                    null
-                  ],
+                  "assignments": [100, null],
                   "declarations": [
                     {
                       "constant": false,
@@ -6855,9 +6826,7 @@
                       "isLValue": false,
                       "isPure": false,
                       "lValueRequested": false,
-                      "names": [
-                        "value"
-                      ],
+                      "names": ["value"],
                       "nodeType": "FunctionCallOptions",
                       "options": [
                         {
@@ -6943,10 +6912,7 @@
                       "id": 108,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        4294967278,
-                        4294967278
-                      ],
+                      "overloadedDeclarations": [4294967278, 4294967278],
                       "referencedDeclaration": 4294967278,
                       "src": "1393:7:0",
                       "typeDescriptions": {
@@ -7050,10 +7016,7 @@
               "src": "1516:116:0",
               "statements": [
                 {
-                  "assignments": [
-                    122,
-                    null
-                  ],
+                  "assignments": [122, null],
                   "declarations": [
                     {
                       "constant": false,
@@ -7148,9 +7111,7 @@
                       "isLValue": false,
                       "isPure": false,
                       "lValueRequested": false,
-                      "names": [
-                        "value"
-                      ],
+                      "names": ["value"],
                       "nodeType": "FunctionCallOptions",
                       "options": [
                         {
@@ -7294,10 +7255,7 @@
                       "id": 134,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        4294967278,
-                        4294967278
-                      ],
+                      "overloadedDeclarations": [4294967278, 4294967278],
                       "referencedDeclaration": 4294967278,
                       "src": "1591:7:0",
                       "typeDescriptions": {
@@ -7690,9 +7648,7 @@
               "src": "2141:396:0",
               "statements": [
                 {
-                  "assignments": [
-                    182
-                  ],
+                  "assignments": [182],
                   "declarations": [
                     {
                       "constant": false,
@@ -7950,9 +7906,7 @@
                   }
                 },
                 {
-                  "assignments": [
-                    201
-                  ],
+                  "assignments": [201],
                   "declarations": [
                     {
                       "constant": false,
@@ -8273,13 +8227,7 @@
                       "isPure": false,
                       "kind": "structConstructorCall",
                       "lValueRequested": false,
-                      "names": [
-                        "id",
-                        "price",
-                        "proof",
-                        "owner",
-                        "state"
-                      ],
+                      "names": ["id", "price", "proof", "owner", "state"],
                       "nodeType": "FunctionCall",
                       "src": "2405:127:0",
                       "tryCall": false,
@@ -8622,9 +8570,7 @@
                   }
                 },
                 {
-                  "assignments": [
-                    254
-                  ],
+                  "assignments": [254],
                   "declarations": [
                     {
                       "constant": false,
@@ -9153,9 +9099,7 @@
                   }
                 },
                 {
-                  "assignments": [
-                    304
-                  ],
+                  "assignments": [304],
                   "declarations": [
                     {
                       "constant": false,
@@ -9625,9 +9569,7 @@
                   }
                 },
                 {
-                  "assignments": [
-                    347
-                  ],
+                  "assignments": [347],
                   "declarations": [
                     {
                       "constant": false,
@@ -9825,10 +9767,7 @@
                   }
                 },
                 {
-                  "assignments": [
-                    363,
-                    null
-                  ],
+                  "assignments": [363, null],
                   "declarations": [
                     {
                       "constant": false,
@@ -9938,9 +9877,7 @@
                       "isLValue": false,
                       "isPure": false,
                       "lValueRequested": false,
-                      "names": [
-                        "value"
-                      ],
+                      "names": ["value"],
                       "nodeType": "FunctionCallOptions",
                       "options": [
                         {
@@ -10041,10 +9978,7 @@
                       "id": 373,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        4294967278,
-                        4294967278
-                      ],
+                      "overloadedDeclarations": [4294967278, 4294967278],
                       "referencedDeclaration": 4294967278,
                       "src": "3763:7:0",
                       "typeDescriptions": {
@@ -11378,13 +11312,7 @@
         ],
         "scope": 491,
         "src": "66:4831:0",
-        "usedErrors": [
-          45,
-          48,
-          51,
-          54,
-          57
-        ]
+        "usedErrors": [45, 48, 51, 54, 57]
       }
     ],
     "src": "32:4866:0"
@@ -11392,9 +11320,7 @@
   "legacyAST": {
     "absolutePath": "project:/contracts/CourseMarketplace.sol",
     "exportedSymbols": {
-      "CourseMarketplace": [
-        490
-      ]
+      "CourseMarketplace": [490]
     },
     "id": 491,
     "license": "MIT",
@@ -11402,15 +11328,7 @@
     "nodes": [
       {
         "id": 1,
-        "literals": [
-          "solidity",
-          ">=",
-          "0.4",
-          ".22",
-          "<",
-          "0.9",
-          ".0"
-        ],
+        "literals": ["solidity", ">=", "0.4", ".22", "<", "0.9", ".0"],
         "nodeType": "PragmaDirective",
         "src": "32:32:0"
       },
@@ -11421,9 +11339,7 @@
         "contractKind": "contract",
         "fullyImplemented": true,
         "id": 490,
-        "linearizedBaseContracts": [
-          490
-        ],
+        "linearizedBaseContracts": [490],
         "name": "CourseMarketplace",
         "nameLocation": "75:17:0",
         "nodeType": "ContractDefinition",
@@ -12202,10 +12118,7 @@
                       "id": 73,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        4294967278,
-                        4294967278
-                      ],
+                      "overloadedDeclarations": [4294967278, 4294967278],
                       "referencedDeclaration": 4294967278,
                       "src": "1140:7:0",
                       "typeDescriptions": {
@@ -12285,10 +12198,7 @@
                       "id": 82,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        4294967278,
-                        4294967278
-                      ],
+                      "overloadedDeclarations": [4294967278, 4294967278],
                       "referencedDeclaration": 4294967278,
                       "src": "1206:7:0",
                       "typeDescriptions": {
@@ -12375,10 +12285,7 @@
               "src": "1333:101:0",
               "statements": [
                 {
-                  "assignments": [
-                    100,
-                    null
-                  ],
+                  "assignments": [100, null],
                   "declarations": [
                     {
                       "constant": false,
@@ -12473,9 +12380,7 @@
                       "isLValue": false,
                       "isPure": false,
                       "lValueRequested": false,
-                      "names": [
-                        "value"
-                      ],
+                      "names": ["value"],
                       "nodeType": "FunctionCallOptions",
                       "options": [
                         {
@@ -12561,10 +12466,7 @@
                       "id": 108,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        4294967278,
-                        4294967278
-                      ],
+                      "overloadedDeclarations": [4294967278, 4294967278],
                       "referencedDeclaration": 4294967278,
                       "src": "1393:7:0",
                       "typeDescriptions": {
@@ -12668,10 +12570,7 @@
               "src": "1516:116:0",
               "statements": [
                 {
-                  "assignments": [
-                    122,
-                    null
-                  ],
+                  "assignments": [122, null],
                   "declarations": [
                     {
                       "constant": false,
@@ -12766,9 +12665,7 @@
                       "isLValue": false,
                       "isPure": false,
                       "lValueRequested": false,
-                      "names": [
-                        "value"
-                      ],
+                      "names": ["value"],
                       "nodeType": "FunctionCallOptions",
                       "options": [
                         {
@@ -12912,10 +12809,7 @@
                       "id": 134,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        4294967278,
-                        4294967278
-                      ],
+                      "overloadedDeclarations": [4294967278, 4294967278],
                       "referencedDeclaration": 4294967278,
                       "src": "1591:7:0",
                       "typeDescriptions": {
@@ -13308,9 +13202,7 @@
               "src": "2141:396:0",
               "statements": [
                 {
-                  "assignments": [
-                    182
-                  ],
+                  "assignments": [182],
                   "declarations": [
                     {
                       "constant": false,
@@ -13568,9 +13460,7 @@
                   }
                 },
                 {
-                  "assignments": [
-                    201
-                  ],
+                  "assignments": [201],
                   "declarations": [
                     {
                       "constant": false,
@@ -13891,13 +13781,7 @@
                       "isPure": false,
                       "kind": "structConstructorCall",
                       "lValueRequested": false,
-                      "names": [
-                        "id",
-                        "price",
-                        "proof",
-                        "owner",
-                        "state"
-                      ],
+                      "names": ["id", "price", "proof", "owner", "state"],
                       "nodeType": "FunctionCall",
                       "src": "2405:127:0",
                       "tryCall": false,
@@ -14240,9 +14124,7 @@
                   }
                 },
                 {
-                  "assignments": [
-                    254
-                  ],
+                  "assignments": [254],
                   "declarations": [
                     {
                       "constant": false,
@@ -14771,9 +14653,7 @@
                   }
                 },
                 {
-                  "assignments": [
-                    304
-                  ],
+                  "assignments": [304],
                   "declarations": [
                     {
                       "constant": false,
@@ -15243,9 +15123,7 @@
                   }
                 },
                 {
-                  "assignments": [
-                    347
-                  ],
+                  "assignments": [347],
                   "declarations": [
                     {
                       "constant": false,
@@ -15443,10 +15321,7 @@
                   }
                 },
                 {
-                  "assignments": [
-                    363,
-                    null
-                  ],
+                  "assignments": [363, null],
                   "declarations": [
                     {
                       "constant": false,
@@ -15556,9 +15431,7 @@
                       "isLValue": false,
                       "isPure": false,
                       "lValueRequested": false,
-                      "names": [
-                        "value"
-                      ],
+                      "names": ["value"],
                       "nodeType": "FunctionCallOptions",
                       "options": [
                         {
@@ -15659,10 +15532,7 @@
                       "id": 373,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        4294967278,
-                        4294967278
-                      ],
+                      "overloadedDeclarations": [4294967278, 4294967278],
                       "referencedDeclaration": 4294967278,
                       "src": "3763:7:0",
                       "typeDescriptions": {
@@ -16996,13 +16866,7 @@
         ],
         "scope": 491,
         "src": "66:4831:0",
-        "usedErrors": [
-          45,
-          48,
-          51,
-          54,
-          57
-        ]
+        "usedErrors": [45, 48, 51, 54, 57]
       }
     ],
     "src": "32:4866:0"
@@ -17012,16 +16876,21 @@
     "version": "0.8.4+commit.c7e474f2.Emscripten.clang"
   },
   "networks": {
+    "3": {
+      "events": {},
+      "links": {},
+      "address": "0x55a4202C5854AE44282d6824feEDa40B46E17f89",
+      "transactionHash": "0xd6fde57764ae89d6799d355abd025d861e500ea797ebaf08d2d09fbad5561a9b"
+    },
     "5777": {
       "events": {},
       "links": {},
-      "address": "0x421fE6e6E017Ff7E9E8dFd14511ED13E86e9530f",
-      "transactionHash": "0x7daa93606fc8f19a7b1fd4a8669e17dbd0d2e236dbe050ac40bb92c61cec90c0"
+      "address": "0x045C994A2123664d902204ea7419719D059885b3",
+      "transactionHash": "0x05386366f6f01875c556c9e52cdafd3de999e21b8f2126ff55563f1a5bf28931"
     }
   },
   "schemaVersion": "3.4.4",
-  "updatedAt": "2022-10-16T15:37:06.310Z",
-  "networkType": "ethereum",
+  "updatedAt": "2022-10-18T03:24:12.733Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},
